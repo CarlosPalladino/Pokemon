@@ -38,7 +38,7 @@
             this.Debilidad = new System.Windows.Forms.Label();
             this.Tipo = new System.Windows.Forms.Label();
             this.Nombre = new System.Windows.Forms.Label();
-            this.textNombre = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.Cancelar = new System.Windows.Forms.Button();
             this.Agregar = new System.Windows.Forms.Button();
@@ -132,12 +132,12 @@
             this.Nombre.TabIndex = 44;
             this.Nombre.Text = "Nombre";
             // 
-            // textNombre
+            // txtNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(249, 121);
-            this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(100, 20);
-            this.textNombre.TabIndex = 37;
+            this.txtNombre.Location = new System.Drawing.Point(249, 121);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.TabIndex = 37;
             // 
             // txtNumero
             // 
@@ -163,6 +163,7 @@
             this.Agregar.TabIndex = 43;
             this.Agregar.Text = "Agregar";
             this.Agregar.UseVisualStyleBackColor = true;
+            this.Agregar.Click += new System.EventHandler(this.Agregar_Click_1);
             // 
             // label1
             // 
@@ -173,7 +174,7 @@
             this.label1.TabIndex = 36;
             this.label1.Text = "Numero";
             // 
-            // FrmAltaPokemon
+            // frmAltaPokemon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -188,12 +189,12 @@
             this.Controls.Add(this.Debilidad);
             this.Controls.Add(this.Tipo);
             this.Controls.Add(this.Nombre);
-            this.Controls.Add(this.textNombre);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.Agregar);
             this.Controls.Add(this.label1);
-            this.Name = "FrmAltaPokemon";
+            this.Name = "frmAltaPokemon";
             this.Text = "FrmAltaPokemon";
             this.Load += new System.EventHandler(this.FrmAltaPokemon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBPokemons)).EndInit();
@@ -214,7 +215,7 @@
         private System.Windows.Forms.Label Debilidad;
         private System.Windows.Forms.Label Tipo;
         private System.Windows.Forms.Label Nombre;
-        private System.Windows.Forms.TextBox textNombre;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.Button Agregar;

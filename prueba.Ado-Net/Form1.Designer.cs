@@ -31,6 +31,7 @@
             this.pictureBPokemons = new System.Windows.Forms.PictureBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.agregar = new System.Windows.Forms.Button();
+            this.Modificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBPokemons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +55,7 @@
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(509, 224);
             this.dataGridView2.TabIndex = 6;
+            this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged_1);
             // 
             // agregar
             // 
@@ -65,11 +67,22 @@
             this.agregar.UseVisualStyleBackColor = true;
             this.agregar.Click += new System.EventHandler(this.agregar_Click_1);
             // 
+            // Modificar
+            // 
+            this.Modificar.Location = new System.Drawing.Point(298, 346);
+            this.Modificar.Name = "Modificar";
+            this.Modificar.Size = new System.Drawing.Size(137, 38);
+            this.Modificar.TabIndex = 9;
+            this.Modificar.Text = "Modificar";
+            this.Modificar.UseVisualStyleBackColor = true;
+            this.Modificar.Click += new System.EventHandler(this.Modificar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Modificar);
             this.Controls.Add(this.agregar);
             this.Controls.Add(this.pictureBPokemons);
             this.Controls.Add(this.dataGridView2);
@@ -87,6 +100,7 @@
         private System.Windows.Forms.PictureBox pictureBPokemons;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button agregar;
+        private System.Windows.Forms.Button Modificar;
     }
 }
 

@@ -27,11 +27,12 @@ namespace prueba.Ado_Net
             cargar();
 
         }
-        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        private void dataGridView2_SelectionChanged_1(object sender, EventArgs e)
         {
-            Pokemon selccionado = (Pokemon)dataGridView2.CurrentRow.DataBoundItem;
 
-            cargarImagen(selccionado.UrlImagen);
+            Pokemon seleccionado = (Pokemon)dataGridView2.CurrentRow.DataBoundItem;
+            cargarImagen(seleccionado.UrlImagen);
+
 
         }
         private void cargar()
@@ -42,6 +43,8 @@ namespace prueba.Ado_Net
                 listaPokemon = negocio.listar();
                 dataGridView2.DataSource = listaPokemon;
                 dataGridView2.Columns["UrlImagen"].Visible = false;
+                dataGridView2.Columns["Id"].Visible = false;
+
                 cargarImagen(listaPokemon[0].UrlImagen);
             }
             catch (Exception ex)
@@ -74,6 +77,16 @@ namespace prueba.Ado_Net
         {
             frmAltaPokemon alta =new frmAltaPokemon();
             alta.ShowDialog();
+            cargar();
+        }
+
+        private void Modificar_Click(object sender, EventArgs e)
+        {
+            Pokemon seleccionado;
+            seleccionado = (Pokemon)dataGridView2.CurrentRow.DataBoundItem;
+
+            frmAltaPokemon modificar = new frmAltaPokemon(seleccionado);
+            modificar.ShowDialog();
             cargar();
         }
     }
