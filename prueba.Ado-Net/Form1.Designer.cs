@@ -33,6 +33,7 @@
             this.agregar = new System.Windows.Forms.Button();
             this.Modificar = new System.Windows.Forms.Button();
             this.Eliminar = new System.Windows.Forms.Button();
+            this.EliminarLogico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBPokemons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             // 
             // agregar
             // 
-            this.agregar.Location = new System.Drawing.Point(92, 346);
+            this.agregar.Location = new System.Drawing.Point(25, 345);
             this.agregar.Name = "agregar";
             this.agregar.Size = new System.Drawing.Size(127, 38);
             this.agregar.TabIndex = 8;
@@ -70,7 +71,7 @@
             // 
             // Modificar
             // 
-            this.Modificar.Location = new System.Drawing.Point(298, 346);
+            this.Modificar.Location = new System.Drawing.Point(192, 345);
             this.Modificar.Name = "Modificar";
             this.Modificar.Size = new System.Drawing.Size(137, 38);
             this.Modificar.TabIndex = 9;
@@ -80,19 +81,30 @@
             // 
             // Eliminar
             // 
-            this.Eliminar.Location = new System.Drawing.Point(490, 351);
+            this.Eliminar.Location = new System.Drawing.Point(358, 345);
             this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Size = new System.Drawing.Size(129, 32);
+            this.Eliminar.Size = new System.Drawing.Size(129, 38);
             this.Eliminar.TabIndex = 10;
             this.Eliminar.Text = "Borrar";
             this.Eliminar.UseVisualStyleBackColor = true;
             this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
+            // 
+            // EliminarLogico
+            // 
+            this.EliminarLogico.Location = new System.Drawing.Point(532, 350);
+            this.EliminarLogico.Name = "EliminarLogico";
+            this.EliminarLogico.Size = new System.Drawing.Size(109, 32);
+            this.EliminarLogico.TabIndex = 11;
+            this.EliminarLogico.Text = "Borrar logico";
+            this.EliminarLogico.UseVisualStyleBackColor = true;
+            this.EliminarLogico.Click += new System.EventHandler(this.EliminarLogico_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.EliminarLogico);
             this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.Modificar);
             this.Controls.Add(this.agregar);
@@ -114,6 +126,7 @@
         private System.Windows.Forms.Button agregar;
         private System.Windows.Forms.Button Modificar;
         private System.Windows.Forms.Button Eliminar;
+        private System.Windows.Forms.Button EliminarLogico;
     }
 }
 

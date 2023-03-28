@@ -69,10 +69,6 @@ namespace prueba.Ado_Net
 
             }
         }
-
-
-       
-
         private void agregar_Click_1(object sender, EventArgs e)
         {
             frmAltaPokemon alta =new frmAltaPokemon();
@@ -92,18 +88,36 @@ namespace prueba.Ado_Net
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
+
+            eliminar();
+            
+           
+        }
+
+        private void EliminarLogico_Click(object sender, EventArgs e)
+        {
+            eliminar(true);
+
+        }
+        private void eliminar(bool logico = false)
+        {
             PokemonNegocio negocio = new PokemonNegocio();
             Pokemon seleccionado;
             try
             {
-                DialogResult respuesta = MessageBox.Show("¿ estas seguro de que querees eliminar ? ", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult respuesta = MessageBox.Show("¿estas seguro de que querees eliminar?", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccionado = (Pokemon)dataGridView2.CurrentRow.DataBoundItem;
-                    negocio.eliminar(seleccionado.Id);
+
+                    if (logico)
+                        negocio.eliminarLogico(seleccionado.Id);
+                    else
+                        negocio.eliminar(seleccionado.Id);
+
                     cargar();
                 }
-              
+
             }
             catch (Exception)
             {
@@ -113,3 +127,4 @@ namespace prueba.Ado_Net
         }
     }
 }
+
