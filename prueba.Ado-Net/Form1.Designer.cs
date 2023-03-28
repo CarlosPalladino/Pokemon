@@ -32,6 +32,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.agregar = new System.Windows.Forms.Button();
             this.Modificar = new System.Windows.Forms.Button();
+            this.Eliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBPokemons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -77,11 +78,22 @@
             this.Modificar.UseVisualStyleBackColor = true;
             this.Modificar.Click += new System.EventHandler(this.Modificar_Click);
             // 
+            // Eliminar
+            // 
+            this.Eliminar.Location = new System.Drawing.Point(490, 351);
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Size = new System.Drawing.Size(129, 32);
+            this.Eliminar.TabIndex = 10;
+            this.Eliminar.Text = "Borrar";
+            this.Eliminar.UseVisualStyleBackColor = true;
+            this.Eliminar.Click += new System.EventHandler(this.Eliminar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.Modificar);
             this.Controls.Add(this.agregar);
             this.Controls.Add(this.pictureBPokemons);
@@ -101,6 +113,7 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button agregar;
         private System.Windows.Forms.Button Modificar;
+        private System.Windows.Forms.Button Eliminar;
     }
 }
 

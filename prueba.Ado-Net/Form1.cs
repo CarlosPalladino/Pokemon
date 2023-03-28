@@ -89,5 +89,27 @@ namespace prueba.Ado_Net
             modificar.ShowDialog();
             cargar();
         }
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+            PokemonNegocio negocio = new PokemonNegocio();
+            Pokemon seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿ estas seguro de que querees eliminar ? ", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Pokemon)dataGridView2.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.Id);
+                    cargar();
+                }
+              
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
