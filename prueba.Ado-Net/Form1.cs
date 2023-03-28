@@ -137,7 +137,37 @@ namespace prueba.Ado_Net
                 List<Pokemon> listaFiltrada;
                 string filtro = txtFiltro.Text;
 
-                if (filtro != "")
+                if (filtro.Length >= 2)
+                {
+                    listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper())); //lambda
+
+                }
+                else
+                {
+                    listaFiltrada = listaPokemon;
+                }
+                dataGridView2.DataSource = null;
+                dataGridView2.DataSource = listaFiltrada;
+                ocultarColumnas();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                List<Pokemon> listaFiltrada;
+                string filtro = txtFiltro.Text;
+
+                if (filtro.Length >=2)
                 {
                     listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper())); //lambda
 
