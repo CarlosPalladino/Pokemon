@@ -29,11 +29,11 @@ namespace prueba.Ado_Net
         }
         private void dataGridView2_SelectionChanged_1(object sender, EventArgs e)
         {
-
+            if(dataGridView2.CurrentRow != null)
+            {
             Pokemon seleccionado = (Pokemon)dataGridView2.CurrentRow.DataBoundItem;
             cargarImagen(seleccionado.UrlImagen);
-
-
+            }
         }
         private void cargar()
         {
@@ -42,9 +42,7 @@ namespace prueba.Ado_Net
             {
                 listaPokemon = negocio.listar();
                 dataGridView2.DataSource = listaPokemon;
-                dataGridView2.Columns["UrlImagen"].Visible = false;
-                dataGridView2.Columns["Id"].Visible = false;
-
+                ocultarColumnas();
                 cargarImagen(listaPokemon[0].UrlImagen);
             }
             catch (Exception ex)
@@ -52,6 +50,11 @@ namespace prueba.Ado_Net
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+        private void ocultarColumnas()
+        {
+            dataGridView2.Columns["UrlImagen"].Visible = false;
+            dataGridView2.Columns["Id"].Visible = false;
         }
         private void cargarImagen(string imagen)
         {
@@ -123,6 +126,35 @@ namespace prueba.Ado_Net
             {
 
                 throw;
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                List<Pokemon> listaFiltrada;
+                string filtro = txtFiltro.Text;
+
+                if (filtro != "")
+                {
+                    listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper())); //lambda
+
+                }
+                else
+                {
+                    listaFiltrada = listaPokemon;
+                }
+                dataGridView2.DataSource = null;
+                dataGridView2.DataSource = listaFiltrada;
+                ocultarColumnas();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

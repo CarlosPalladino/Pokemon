@@ -34,6 +34,9 @@
             this.Modificar = new System.Windows.Forms.Button();
             this.Eliminar = new System.Windows.Forms.Button();
             this.EliminarLogico = new System.Windows.Forms.Button();
+            this.Filtro = new System.Windows.Forms.Label();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBPokemons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -99,11 +102,41 @@
             this.EliminarLogico.UseVisualStyleBackColor = true;
             this.EliminarLogico.Click += new System.EventHandler(this.EliminarLogico_Click);
             // 
+            // Filtro
+            // 
+            this.Filtro.AutoSize = true;
+            this.Filtro.Location = new System.Drawing.Point(36, 39);
+            this.Filtro.Name = "Filtro";
+            this.Filtro.Size = new System.Drawing.Size(26, 13);
+            this.Filtro.TabIndex = 12;
+            this.Filtro.Text = "filtro";
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.Location = new System.Drawing.Point(91, 36);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(136, 20);
+            this.txtFiltro.TabIndex = 13;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnBuscar.Location = new System.Drawing.Point(244, 28);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(98, 34);
+            this.btnBuscar.TabIndex = 14;
+            this.btnBuscar.Text = "buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtFiltro);
+            this.Controls.Add(this.Filtro);
             this.Controls.Add(this.EliminarLogico);
             this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.Modificar);
@@ -116,6 +149,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBPokemons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -127,6 +161,9 @@
         private System.Windows.Forms.Button Modificar;
         private System.Windows.Forms.Button Eliminar;
         private System.Windows.Forms.Button EliminarLogico;
+        private System.Windows.Forms.Label Filtro;
+        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
 
