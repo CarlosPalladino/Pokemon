@@ -33,7 +33,7 @@ namespace Negocio1
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta;
         }
-        public void ejececutarLectura()
+        public void ejecutarLectura()
         {
             comando.Connection = conexion;
             try

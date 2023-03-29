@@ -21,7 +21,7 @@ namespace Negocio1
             try
             {
                 datos.setearConsulta("Select Id, Descripcion From ELEMENTOS");
-                datos.ejececutarLectura();
+                datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {

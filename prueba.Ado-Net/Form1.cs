@@ -25,14 +25,16 @@ namespace prueba.Ado_Net
         private void Form1_Load(object sender, EventArgs e)
         {
             cargar();
-
+            cboCampo.Items.Add("Número");
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Descripcion");
         }
         private void dataGridView2_SelectionChanged_1(object sender, EventArgs e)
         {
-            if(dataGridView2.CurrentRow != null)
+            if (dataGridView2.CurrentRow != null)
             {
-            Pokemon seleccionado = (Pokemon)dataGridView2.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.UrlImagen);
+                Pokemon seleccionado = (Pokemon)dataGridView2.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.UrlImagen);
             }
         }
         private void cargar()
@@ -74,7 +76,7 @@ namespace prueba.Ado_Net
         }
         private void agregar_Click_1(object sender, EventArgs e)
         {
-            frmAltaPokemon alta =new frmAltaPokemon();
+            frmAltaPokemon alta = new frmAltaPokemon();
             alta.ShowDialog();
             cargar();
         }
@@ -93,8 +95,8 @@ namespace prueba.Ado_Net
         {
 
             eliminar();
-            
-           
+
+
         }
 
         private void EliminarLogico_Click(object sender, EventArgs e)
@@ -129,64 +131,67 @@ namespace prueba.Ado_Net
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnFiltro_Click_1(object sender, EventArgs e)
         {
+            PokemonNegocio negocio = new PokemonNegocio();
             try
             {
-
-                List<Pokemon> listaFiltrada;
-                string filtro = txtFiltro.Text;
-
-                if (filtro.Length >= 2)
-                {
-                    listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper())); //lambda
-
-                }
-                else
-                {
-                    listaFiltrada = listaPokemon;
-                }
-                dataGridView2.DataSource = null;
-                dataGridView2.DataSource = listaFiltrada;
-                ocultarColumnas();
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltroAvanzado.Text;
+                dataGridView2.DataSource = negocio.filtrar(campo,criterio,filtro);
 
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
 
         }
+
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            try
+            List<Pokemon> listaFiltrada;
+            string filtro = txtFiltroAvanzado.Text;
+
+            if (filtro.Length >= 3)
             {
-
-                List<Pokemon> listaFiltrada;
-                string filtro = txtFiltro.Text;
-
-                if (filtro.Length >=2)
-                {
-                    listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper())); //lambda
-
-                }
-                else
-                {
-                    listaFiltrada = listaPokemon;
-                }
-                dataGridView2.DataSource = null;
-                dataGridView2.DataSource = listaFiltrada;
-                ocultarColumnas();
-
+                listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper()));
             }
-            catch (Exception ex)
+            else
             {
+                listaFiltrada = listaPokemon;
+            }
 
-                throw ex;
+            dataGridView2.DataSource = null;
+            dataGridView2.DataSource = listaFiltrada;
+            ocultarColumnas();
+        }
+
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampo.SelectedItem.ToString();
+            if (opcion == "Número")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a ");
+                cboCriterio.Items.Add("Menor a ");
+                cboCriterio.Items.Add("Igual a ");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene ");
+
             }
         }
+
+     
     }
 }
+
 
