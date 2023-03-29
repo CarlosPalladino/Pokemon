@@ -43,12 +43,13 @@
             this.Cancelar = new System.Windows.Forms.Button();
             this.Agregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.AgregarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBPokemons)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBPokemons
             // 
-            this.pictureBPokemons.Location = new System.Drawing.Point(395, 65);
+            this.pictureBPokemons.Location = new System.Drawing.Point(468, 65);
             this.pictureBPokemons.Name = "pictureBPokemons";
             this.pictureBPokemons.Size = new System.Drawing.Size(241, 249);
             this.pictureBPokemons.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -174,11 +175,22 @@
             this.label1.TabIndex = 36;
             this.label1.Text = "Numero";
             // 
+            // AgregarImagen
+            // 
+            this.AgregarImagen.Location = new System.Drawing.Point(376, 211);
+            this.AgregarImagen.Name = "AgregarImagen";
+            this.AgregarImagen.Size = new System.Drawing.Size(50, 23);
+            this.AgregarImagen.TabIndex = 50;
+            this.AgregarImagen.Text = "+";
+            this.AgregarImagen.UseVisualStyleBackColor = true;
+            this.AgregarImagen.Click += new System.EventHandler(this.AgregarImagen_Click);
+            // 
             // frmAltaPokemon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.AgregarImagen);
             this.Controls.Add(this.pictureBPokemons);
             this.Controls.Add(this.UrlImagen);
             this.Controls.Add(this.txtUrlImagen);
@@ -220,5 +232,6 @@
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.Button Agregar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button AgregarImagen;
     }
 }
