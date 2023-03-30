@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Dominio1;
+﻿using Dominio1;
 using Negocio1;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 using winfrom_app;
 
 namespace prueba.Ado_Net
@@ -130,12 +124,54 @@ namespace prueba.Ado_Net
                 throw;
             }
         }
+        private bool validarfiltro( )
+        {
+            if (cboCampo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select item");
+                return true;
+            }
+            if(cboCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select item");
+                return true;
+            }
+            if (cboCampo.SelectedItem.ToString() == "Número")
+                if(string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+                {
+                    MessageBox.Show("Select number filter ");
+                    return true;
+                }
+            {
+             if (!(soloNumeros(txtFiltroAvanzado.Text)))
+                {
+                    MessageBox.Show("Only Numbers");
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+               
+            {
+                if (!(char.IsNumber(caracter))) 
+                    return false; 
+            }
+            return true;
+        }
 
         private void btnFiltro_Click_1(object sender, EventArgs e)
         {
             PokemonNegocio negocio = new PokemonNegocio();
             try
             {
+                if (validarfiltro()) 
+                return;
+
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtFiltroAvanzado.Text;
