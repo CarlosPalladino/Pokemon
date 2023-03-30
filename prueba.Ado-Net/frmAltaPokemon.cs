@@ -88,11 +88,7 @@ namespace winfrom_app
                     negocio.agregar(pokemon);
                     MessageBox.Show("Agregado exitosamente");
                 }
-                //guardo imagen si la levanté localmente
-                if(archivo != null && txtUrlImagen.Text.ToUpper().Contains("HTTP"))
-                {
-                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
-                }
+
                 Close();
 
             }
@@ -101,29 +97,8 @@ namespace winfrom_app
                 MessageBox.Show(ex.ToString());
             }
         }
-        private void pictureBPokemons_Leave(object sender, EventArgs e)
-        {
+        
 
-
-            cargarImagen(txtUrlImagen.Text);
-        }
-
-        private void cargarImagen(string imagen)
-        {
-            try
-            {
-                pictureBPokemons.Load(imagen);
-
-            }
-            catch (Exception ex)
-            {
-
-                pictureBPokemons.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoNaLFFSdD4YhW8mqgDBSWY8nHnte6ANHQWz6Lsl37yA&s");
-
-
-
-            }
-        }
 
         private void AgregarImagen_Click(object sender, EventArgs e)
         {
@@ -139,6 +114,26 @@ namespace winfrom_app
             }
         }
 
-       
+        private void txtUrlImagen_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtUrlImagen.Text);
+        }
+
+
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pictureBPokemons.Load(imagen);
+
+            }
+            catch (Exception ex)
+            {
+
+                pictureBPokemons.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoNaLFFSdD4YhW8mqgDBSWY8nHnte6ANHQWz6Lsl37yA&s");
+            }
+        }
+
     }
 }

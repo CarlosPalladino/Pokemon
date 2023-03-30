@@ -152,7 +152,8 @@ namespace Negocio1
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "Select Numero, Nombre, P.Descripcion, UrlImagen, E.Descripcion Tipo, D.Descripcion Debilidad, P.IdTipo, P.IdDebilidad, P.Id From POKEMONS P, ELEMENTOS E, ELEMENTOS D Where E.Id = P.IdTipo And D.Id = P.IdDebilidad And P.Activo = 1 And ";
+                string consulta = "select POKEMONS.Numero, POKEMONS.Nombre, POKEMONS.Descripcion, POKEMONS.UrlImagen, ELEMENTOS.Descripcion Tipo, D.Descripcion Debilidad, POKEMONS.IdTipo, POKEMONS.IdDebilidad, POKEMONS.Id from POKEMONS inner join ELEMENTOS on POKEMONS.IdTipo = ELEMENTOS.Id inner join ELEMENTOS D on POKEMONS.IdDebilidad = D.Id where Activo = 1 AND  ";
+;
                 if (campo == "Número")
                 {
                     switch (criterio)

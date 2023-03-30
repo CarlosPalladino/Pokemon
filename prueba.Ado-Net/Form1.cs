@@ -176,9 +176,9 @@ namespace prueba.Ado_Net
             if (opcion == "Número")
             {
                 cboCriterio.Items.Clear();
-                cboCriterio.Items.Add("Mayor a ");
-                cboCriterio.Items.Add("Menor a ");
-                cboCriterio.Items.Add("Igual a ");
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
             }
             else
             {
